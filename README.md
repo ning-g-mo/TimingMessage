@@ -2,6 +2,7 @@
 
 一个功能强大的Minecraft服务器定时消息发送插件。
 
+**基于[minutemessage](https://github.com/ning-g-mo/MinuteMessage) 插件开发。**
 ## 功能特点
 
 - 支持多种消息类型：全局广播、标题栏、快捷栏、Boss栏
@@ -45,4 +46,4 @@ https://github.com/ning-g-mo/TimingMessage
 
 ## 许可证
 
-GPL-3.0 
+MIT License
