@@ -1,5 +1,7 @@
 # TimingMessage
 
+[English](README_EN.md)|简体中文
+
 一个功能强大的Minecraft服务器定时消息发送插件。
 
 **基于[minutemessage](https://github.com/ning-g-mo/MinuteMessage) 插件开发。**
