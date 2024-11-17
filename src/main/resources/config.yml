@@ -1,0 +1,280 @@
+# TimingMessage 定时消息插件配置文件
+# TimingMessage scheduled message plugin configuration file
+# 作者: 柠枺
+# Author: 柠枺
+# 版本: 1.0.0
+# Version: 1.0.0
+
+# 语言设置
+# Language settings
+settings:
+  # 语言设置
+  # Language settings
+  # 可用语言: zh_CN(简体中文), en_US(英语)
+  # Available languages: zh_CN (Simplified Chinese), en_US (English)
+  language: "zh_CN"
+
+  # 如果找不到指定语言，是否使用默认语言(zh_CN)
+  # Whether to use default language (zh_CN) if the specified language is not found
+  use-default-if-missing: true
+
+# 插件总开关
+# Plugin global switch
+# 设置为false将停止所有消息发送
+# Set to false to stop all message sending
+enabled: true
+
+# 功能开关配置
+# Feature switch configuration
+features:
+  # 进服消息配置
+  # Join message configuration
+  join-message:
+    # 是否启用进服消息
+    # Whether to enable join message
+    enabled: true
+    # 是否广播给其他玩家
+    # Whether to broadcast to other players
+    # true: 所有玩家都能看到
+    # true: All players can see
+    # false: 只有进入的玩家能看到
+    # false: Only the player joining can see
+    broadcast: true
+
+  # 退服消息配置
+  # Quit message configuration
+  quit-message:
+    # 是否启用退服消息
+    # Whether to enable quit message
+    enabled: true
+    # 是否广播给其他玩家
+    # Whether to broadcast to other players
+    # true: 所有玩家都能看到
+    # true: All players can see
+    # false: 不显示退服消息
+    # false: Do not show quit message
+    broadcast: true
+
+  # 维度切换消息配置
+  # Dimension change message configuration
+  world-change:
+    # 是否启用维度切换消息
+    # Whether to enable dimension change message
+    enabled: true
+    # 默认是否广播给其他玩家
+    # Whether to broadcast to other players by default
+    broadcast: false
+    # 各维度消息配置
+    # Configuration for messages in each dimension
+    worlds:
+      # 下界维度配置
+      # Nether dimension configuration
+      world_nether:
+        # 进入下界时的消息
+        # Message when entering the Nether
+        enter:
+          message: "&c%player% 进入了下界"
+          broadcast: true
+        # 离开下界时的消息
+        # Message when leaving the Nether
+        leave:
+          message: "&a%player% 离开了下界"
+          broadcast: true
+      # 末地维度配置
+      # End dimension configuration
+      world_the_end:
+        enter:
+          message: "&d%player% 进入了末地"
+          broadcast: true
+        leave:
+          message: "&e%player% 离开了末地"
+          broadcast: true
+      # 主世界配置
+      # Overworld configuration
+      world:
+        enter:
+          message: "&b%player% 回到了主世界"
+          broadcast: true
+        leave:
+          message: "&7%player% 离开了主世界"
+          broadcast: true
+
+# 定时消息组配置
+# Scheduled message group configuration
+# 可以配置多个消息组，每个组都有独立的设置
+# Multiple message groups can be configured, each with independent settings
+message-groups:
+  # 服务器公告组
+  # Server announcements group
+  server-announcements:
+    # 消息类型: broadcast(全服广播), title(标题), actionbar(快捷栏), bossbar(Boss栏)
+    # Message type: broadcast (server-wide broadcast), title (header), actionbar (shortcut), bossbar (Boss bar)
+    type: broadcast
+    # 是否启用此消息组
+    # Whether to enable this message group
+    enabled: true
+    # 发送间隔(分钟)
+    # Send interval (minutes)
+    interval: 15
+    # 消息列表(随机发送其中一条)
+    # List of messages (randomly send one)
+    messages:
+      - "&a欢迎使用定时消息插件\n&e当前在线: %online%/%max_players%"
+      - "&b服务器时间: %time%\n&6今天是: %date%"
+
+  # 活动通知组
+  # Event notifications group
+  event-notifications:
+    type: broadcast
+    enabled: true
+    interval: 30
+    messages:
+      - "&6每日签到可获得奖励!"
+      - "&e参与活动赢取好礼!"
+
+  # 规则提醒组
+  # Rule reminders group
+  rule-reminders:
+    type: title
+    enabled: true
+    interval: 45
+    # 标题消息格式：
+    # Title message format:
+    # title: 主标题内容
+    # title: Main title content
+    # subtitle: 副标题内容(可选)
+    # subtitle: Subtitle content (optional)
+    messages:
+      - "title: &c服务器规则\nsubtitle: &e请遵守服务器规则"
+      - "title: &6友善交流\nsubtitle: &a文明游戏，和谐交流"
+
+  # 快捷栏提示组
+  # Actionbar tips group
+  tips:
+    type: actionbar
+    enabled: true
+    interval: 10
+    messages:
+      - "&b输入/help查看帮助"
+      - "&a新手教程请输入/tutorial"
+
+  # Boss栏进度组
+  # Boss bar progress group
+  progress:
+    type: bossbar
+    enabled: true
+    interval: 20
+    # Boss栏消息格式：
+    # Boss bar message format:
+    # text: 显示文本
+    # text: Display text
+    # color: 颜色(BLUE/GREEN/PINK/PURPLE/RED/WHITE/YELLOW)
+    # color: Color (BLUE/GREEN/PINK/PURPLE/RED/WHITE/YELLOW)
+    messages:
+      - "text: &d在线奖励进度\ncolor: PURPLE"
+      - "text: &6活动剩余时间\ncolor: GOLD"
+
+# 定点消息组配置
+# Scheduled message group configuration
+# 在指定时间发送的消息
+# Messages sent at specified times
+scheduled-groups:
+  # 早安消息组
+  # Good morning message group
+  morning:
+    type: broadcast
+    enabled: true
+    # 发送时间(24小时制)
+    # Send time (24-hour format)
+    time: "08:00"
+    messages:
+      - "&e早安! 新的一天开始了"
+      - "&6早安! 祝您游戏愉快"
+
+  # 午间提醒组
+  # Noon reminder group
+  noon:
+    type: title
+    enabled: true
+    time: "12:00"
+    messages:
+      - "title: &6午间提醒\nsubtitle: &e记得吃午饭哦"
+
+  # 晚安消息组
+  # Good night message group
+  night:
+    type: broadcast
+    enabled: true
+    time: "22:00"
+    messages:
+      - "&b晚安! 记得早点休息"
+      - "&d晚安! 期待明天再见"
+
+# 世界特定消息组配置
+# World-specific message group configuration
+# 只在指定世界发送的消息
+# Messages sent only in specified worlds
+world-groups:
+  # 下界消息组
+  # Nether message group
+  nether:
+    type: broadcast
+    enabled: true
+    interval: 20
+    # 目标世界名称
+    # Target world name
+    world: world_nether
+    messages:
+      - "&c注意岩浆和火焰伤害"
+      - "&6小心岩浆怪和恶魂"
+
+  # 末地消息组
+  # End message group
+  end:
+    type: actionbar
+    enabled: true
+    interval: 15
+    world: world_the_end
+    messages:
+      - "&d小心末影龙攻击"
+      - "&5注意虚空伤害"
+
+# 颜色代码说明:
+# Color code explanation:
+# &0 黑色        &1 深蓝色      &2 深绿色      &3 湖蓝色
+# &0 Black       &1 Dark Blue   &2 Dark Green  &3 Aqua
+# &4 深红色      &5 紫色        &6 金色        &7 灰色
+# &4 Dark Red    &5 Purple      &6 Gold        &7 Gray
+# &8 深灰色      &9 蓝色        &a 绿色        &b 天蓝色
+# &8 Dark Gray    &9 Blue        &a Green       &b Light Blue
+# &c 红色        &d 粉红色      &e 黄色        &f 白色
+# &c Red         &d Pink        &e Yellow      &f White
+# &k 随机字符    &l 粗体        &m 删除线      &n 下划线
+# &k Random characters &l Bold &m Strikethrough &n Underline
+# &o 斜体        &r 重置格式
+# &o Italic      &r Reset format
+# &#RRGGBB 自定义RGB颜色(例如: &#ff0000 红色)
+# &#RRGGBB Custom RGB color (e.g., &#ff0000 Red)
+
+# 占位符说明:
+# Placeholder explanation:
+# %player% - 玩家名称
+# %player% - Player name
+# %world% - 世界名称
+# %world% - World name
+# %online% - 在线玩家数
+# %online% - Number of online players
+# %max_players% - 最大玩家数
+# %max_players% - Maximum player count
+# %server_name% - 服务器名称
+# %server_name% - Server name
+# %server_version% - 服务器版本
+# %server_version% - Server version
+# %plugin_version% - 插件版本
+# %plugin_version% - Plugin version
+# %time% - 当前时间(HH:mm:ss)
+# %time% - Current time (HH:mm:ss)
+# %date% - 当前日期(yyyy-MM-dd)
+# %date% - Current date (yyyy-MM-dd)
+# 同时支持PlaceholderAPI的所有占位符
+# Also supports all placeholders of PlaceholderAPI

@@ -1,0 +1,21 @@
+name: TimingMessage
+version: '${version}'
+main: cn.ningmo.TimingMessage
+api-version: '1.21'
+author: 柠枺
+description: 一个功能强大的定时消息发送插件
+website: https://github.com/ning-g-mo/TimingMessage
+
+softdepend: [PlaceholderAPI]
+
+commands:
+  timingmessage:
+    description: 定时消息插件主命令
+    aliases: [tm]
+    usage: /tm <reload>
+    permission: timingmessage.admin
+
+permissions:
+  timingmessage.admin:
+    description: 允许使用插件管理命令
+    default: op 

@@ -1,0 +1,29 @@
+# English language file
+
+prefix: "&7[&6TimingMessage&7] "
+
+plugin:
+  enabled: "&aPlugin enabled"
+  disabled: "&cPlugin disabled"
+  reload: "&aConfiguration reloaded"
+  no-permission: "&cYou don't have permission"
+  version-check: "&eChecking for updates..."
+  update-found: "&aNew version found: %version%"
+  no-update: "&aYou are using the latest version"
+
+loading:
+  start: "&7Loading plugin..."
+  config: "&7Loading configuration..."
+  command: "&7Registering commands..."
+  listener: "&7Registering listeners..."
+  scheduler: "&7Starting message scheduler..."
+  update-checker: "&7Checking for updates..."
+  complete: "&aPlugin loaded successfully!"
+  
+disable:
+  scheduler: "&7Stopping message scheduler..."
+  complete: "&cPlugin disabled!"
+
+messages:
+  join: "&aWelcome &e%player% &ato the server"
+  quit: "&e%player% &chas left the server" 
